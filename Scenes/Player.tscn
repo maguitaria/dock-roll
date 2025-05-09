@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://d4ll6q0heuxe1"]
+
+[ext_resource type="Script" uid="uid://tythyudiplnq" path="res://Scripts/Player.gd" id="1_rpqav"]
+
+[node name="Player" type="Node3D"]
+script = ExtResource("1_rpqav")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
