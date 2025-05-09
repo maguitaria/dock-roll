@@ -1,3 +1,12 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+# Godot import files
+.import/
+
+# Godot-generated metadata
+export.cfg
+export_presets.cfg
+
+# Exclude full Assets folder (no assets on GitHub)
+Assets/
