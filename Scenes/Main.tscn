@@ -4,3 +4,27 @@
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_r150o")
+
+[node name="Menu" type="CanvasLayer" parent="."]
+
+[node name="Container" type="VBoxContainer" parent="Menu"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ButtonStart" type="Button" parent="Menu/Container"]
+layout_mode = 2
+
+[node name="LevelLabel" type="Label" parent="Menu/Container"]
+layout_mode = 2
+
+[node name="World" type="Node3D" parent="."]
+
+[node name="Environment" type="WorldEnvironment" parent="World"]
+
+[node name="Player" type="CharacterBody3D" parent="."]
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="Sounds"]
+
+[node name="LevelMusic" type="AudioStreamPlayer" parent="Sounds"]

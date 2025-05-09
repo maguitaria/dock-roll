@@ -19,11 +19,11 @@ func _ready():
 	update_level_label()
 
 	# --- Sky setup begins here ---
-	var sky_texture = load("res://Assets/Environment/passendorf_snow_2k.hdr")
-	var sky_material = PanoramaSkyMaterial.new()
-	sky_material.panorama = sky_texture
-	var sky = Sky.new()
-	sky.material = sky_material
+	#var sky_texture = load("res://Assets/Environment/passendorf_snow_2k.hdr")
+	#var sky_material = Sky.new()
+	#sky_material.panorama = sky_texture
+	#var sky = Sky.new()
+	#sky.material = sky_material
 
 	var env_node = $World/Environment  # Adjust this path if needed
 
@@ -31,7 +31,7 @@ func _ready():
 	if env_node.environment == null:
 		env_node.environment = Environment.new()
 
-	env_node.environment.sky = sky
+	#env_node.environment.sky = sky
 
 
 # Show last saved lvel

@@ -4,7 +4,7 @@ extends Node
 
 # Platform Assets
 var platform_Assets = [
-	preload("res://Assets/Platforms/ground_dirt_4.tscn"),
+	preload("res://Assets/Platforms/ground_dirt_4.fbx"),
 	preload("res://Assets/Platforms/ground_grass_4.fbx"),
 	preload("res://Assets/Platforms/ground_wood_4.fbx")
 ]
@@ -17,11 +17,11 @@ var air_platform_spawn_chance = 0.5
 
 # Obstacle Assets
 var obstacle_Assets = [
-	preload("res://Assets/Obstacles/Crate.tscn"),
-	preload("res://Assets/Obstacles/Rock1.tscn"),
-	preload("res://Assets/Obstacles/Rock2.tscn"),
-	preload("res://Assets/Obstacles/Rock3.tscn"),
-	preload("res://Assets/Obstacles/TreeStump.tscn"),
+	preload("res://Assets/Obstacles/Crate.fbx"),
+	preload("res://Assets/Obstacles/Rock1.fbx"),
+	preload("res://Assets/Obstacles/Rock2.fbx"),
+	preload("res://Assets/Obstacles/Rock3.fbx"),
+	preload("res://Assets/Obstacles/TreeStump.fbx"),
 ]
 var obstacle_scene = preload("res://Scenes/Obstacles.tscn")
 var obstacle_spawn_chance = 0.5
@@ -44,17 +44,17 @@ var environment_Assets = {
 # Collectible Assets
 var collectibles_Assets = {
 	"coin": {
-		"scene": preload("res://Assets/Collectibles/Coin.tscn"),
+		"scene": preload("res://Assets/Collectibles/Coin.fbx"),
 		"effect": "increase_score",
 		"spawn_chance": 0.07
 	},
 	"gem": {
-		"scene": preload("res://Assets/Collectibles/Gem.tscn"),
+		"scene": preload("res://Assets/Collectibles/Gem.fbx"),
 		"effect": "boost_jump",
 		"spawn_chance": 0.04
 	},
 	"flag": {
-		"scene": preload("res://Assets/Collectibles/Flag.tscn"),
+		"scene": preload("res://Assets/Collectibles/Flag.fbx"),
 		"effect": "decrease_time",
 		"spawn_chance": 0.02
 	}
@@ -63,8 +63,8 @@ var collectible_scene = preload("res://Scenes/Collectibles.tscn")
 
 # Advanced Obstacles
 var advanced_obstacle_Assets = [
-	preload("res://Assets/AdvancedObstacles/bee.fbx"),
-	preload("res://Assets/AdvancedObstacles/rotating_log.fbx")
+	preload("res://Assets/Advanced_Obstacles/bee.fbx"),
+	preload("res://Assets/Advanced_Obstacles/rotating_log.fbx")
 ]
 var advanced_obstacle_spawn_chance = 0
 
