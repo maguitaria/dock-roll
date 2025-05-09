@@ -1,49 +1,75 @@
-extends Node
+### Main.gd
 
+extends Node3D
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	var environment_node = Node3D.new()
-	environment_node.name = "Environment"
-	add_child(environment_node)
+# Node Refs
+@onready var menu = $Menu
+@onready var world = $World
+@onready var player = $Player
+@onready var button_start = $Menu/Container/ButtonStart
+@onready var level_label = $Menu/Container/LevelLabel
+@onready var menu_music = $Sounds/MenuMusic
+@onready var level_music = $Sounds/LevelMusic
 
-	create_directional_light(environment_node)
-	create_sky_environment(environment_node)
+func _ready():
+	menu.visible = true
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	level_music.stop()
+	menu_music.play()
+	update_level_label()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-func create_directional_light(parent: Node3D) -> DirectionalLight3D:
-	var light = DirectionalLight3D.new()
-	light.light_energy = 1.0
-	light.shadow_enabled = true
-	light.position = Vector3(-1, 600, -970)
-	light.rotation_degrees = Vector3(-50, 170, -150)
-	parent.add_child(light)
-	return light
-
-func create_sky_environment(parent: Node3D) -> WorldEnvironment:
-	var world_env = WorldEnvironment.new()
-	var env = Environment.new()
-	world_env.environment = env
-
-	# Set sky background
-	env.background_mode = Environment.BG_SKY
+	# --- Sky setup begins here ---
+	var sky_texture = load("res://Assets/Environment/passendorf_snow_2k.hdr")
+	var sky_material = PanoramaSkyMaterial.new()
+	sky_material.panorama = sky_texture
 	var sky = Sky.new()
+	sky.material = sky_material
+
+	var env_node = $World/Environment  # Adjust this path if needed
+
+	# Create Environment resource if it doesn't exist
+	if env_node.environment == null:
+		env_node.environment = Environment.new()
+
+	env_node.environment.sky = sky
+
+
+# Show last saved lvel
+func update_level_label():
+	Global.load_game() 
+	level_label.text = "last saved level: %d" % Global.level 
 	
-	# TODO: Replace with a real .hdr or .png sky image path
-	var sky_texture = load("res://Assets/Sky/sky_texture.hdr")
-	sky.panorama = sky_texture
-	env.sky = sky
+# Start New/Resume Game
+func _on_button_start_pressed():
+	if button_start.text == "NEW GAME":
+		Global.new_game()
+	menu.visible = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	menu_music.stop()
+	level_music.play()
+	get_tree().paused = false
 
-	# Set fog
-	env.fog_enabled = true
-	env.fog_color = Color(0.7, 0.8, 0.9)
-	env.fog_depth_begin = 100
-	env.fog_depth_end = 1500
-	env.fog_density = 0.03
+# Load Game
+func _on_button_load_pressed():
+	Global.load_game()
+	menu.visible = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	player.reset_game_state()
+	menu_music.stop()
+	level_music.play()
+	get_tree().paused = false
 
-	parent.add_child(world_env)
-	return world_env
+# Exit Game
+func _on_button_exit_pressed():
+	get_tree().quit()
+
+# Pause Menu
+func _input(event):
+	if event.is_action_pressed("ui_menu"):
+		update_level_label() 
+		menu.visible = true
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		menu_music.play()
+		level_music.stop()
+		button_start.text = "RESUME LEVEL"
+		get_tree().paused = true
