@@ -10,7 +10,6 @@ extends Node3D
 @onready var level_label = $Menu/Container/LevelLabel
 @onready var menu_music = $Sounds/MenuMusic
 @onready var level_music = $Sounds/LevelMusic
-
 func _ready():
 	menu.visible = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -18,21 +17,10 @@ func _ready():
 	menu_music.play()
 	update_level_label()
 
-	# --- Sky setup begins here ---
-	#var sky_texture = load("res://Assets/Environment/passendorf_snow_2k.hdr")
-	#var sky_material = Sky.new()
-	#sky_material.panorama = sky_texture
-	#var sky = Sky.new()
-	#sky.material = sky_material
-
-	var env_node = $World/Environment  # Adjust this path if needed
-
-	# Create Environment resource if it doesn't exist
-	if env_node.environment == null:
-		env_node.environment = Environment.new()
-
-	#env_node.environment.sky = sky
-
+	# --- Skybox setup ---
+	var env := Environment.new()
+	env.background_mode = Environment.BG_COLOR
+	env.background_color = Color(0.1, 0.1, 0.1)  # Dark grey
 
 # Show last saved lvel
 func update_level_label():
