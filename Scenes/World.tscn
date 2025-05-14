@@ -23,6 +23,7 @@ wait_time = 0.5
 autostart = true
 
 [node name="Obstacles2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 145.789)
 
 [node name="Environment2" type="Node3D" parent="."]
 

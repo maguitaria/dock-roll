@@ -54,6 +54,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 
 [node name="Player" parent="." instance=ExtResource("1_54ub6")]
 process_mode = 1
+transform = Transform3D(0.109821, 0, 0.993951, 0, 1, 0, -0.993951, 0, 0.109821, 0, 0, 0)
 
 [node name="Menu" type="CanvasLayer" parent="."]
 process_mode = 3
@@ -65,7 +66,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.290196, 0.415686, 0.560784, 1)
+color = Color(0.699512, 0.0832344, 0.500773, 1)
 
 [node name="Label" type="Label" parent="Menu/Container"]
 layout_mode = 1

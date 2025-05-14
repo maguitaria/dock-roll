@@ -15,7 +15,7 @@ func _ready():
 func spawn_obstacle():
 	var obstacle_resource = null
 	if randf() < Global.advanced_obstacle_spawn_chance:
-		obstacle_resource = Global.advanced_obstacle_resources[randi() % Global.advanced_obstacle_resources.size()]
+		obstacle_resource = Global.advanced_obstacle_Assets[randi() % Global.advanced_obstacle_Assets.size()]
 	else:
 		obstacle_resource = Global.obstacle_Assets[randi() % Global.obstacle_Assets.size()]
 		
