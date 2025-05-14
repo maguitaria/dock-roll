@@ -1,5 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://wvdjghp77q4u"]
 
+
 [ext_resource type="Script" uid="uid://d4lua6pmb6q12" path="res://Scripts/World.gd" id="1_n5c5u"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_llfpy"]
@@ -11,6 +12,18 @@ script = ExtResource("1_n5c5u")
 shape = SubResource("SphereShape3D_llfpy")
 
 [node name="Platforms" type="Node3D" parent="."]
+
+[node name="Obstacles" type="Node3D" parent="."]
+
+[node name="Environment" type="Node3D" parent="."]
+
+[node name="Collectibles" type="Node3D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 
 [node name="Obstacles" type="Node3D" parent="."]
 

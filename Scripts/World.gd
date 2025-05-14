@@ -56,7 +56,7 @@ func _on_timer_timeout():
 # Spawn platforms
 func spawn_platform_segment():
 	# Randomly select a platform resource
-	var platform_resource = Global.platform_resources[randi() % Global.platform_resources.size()]
+	var platform_resource = Global.platform_Assets[randi() % Global.platform_Assets.size()]
 	var new_platform = platform_resource.instantiate()
 	new_platform.transform.origin = last_platform_position
 	platforms.add_child(new_platform)
@@ -76,7 +76,7 @@ func spawn_air_platform_segments():
 		# Choose a random X position for the entire sequence
 		var x_position = randi_range(-1, 1) 
 		for i in range(number_of_in_air_platforms):
-			var platform_resource = Global.air_platforms_resources[randi() % Global.air_platforms_resources.size()]
+			var platform_resource = Global.air_platforms_Assets[randi() % Global.air_platforms_Assets.size()]
 			var new_platform = platform_resource.instantiate()
 			var z_position = last_air_platform_position.z + i
 			new_platform.transform.origin = Vector3(x_position, y_position, z_position)
@@ -105,7 +105,7 @@ func spawn_obstacle():
 
 # Spawn Environmentals	
 func spawn_water(along_z: float, water_level: float):
-	var water_resource = Global.environment_resources["water"][0] # First water scene
+	var water_resource = Global.environment_Assets["water"][0] # First water scene
 	var distance_from_platform = 3.0
 	var water_extent = 15
 
@@ -139,13 +139,13 @@ func spawn_ground_and_clouds(asset_category, along_z, y_pos):
 func spawn_environmental_segment(along_z: float):
 	# Spawn clouds
 	spawn_ground_and_clouds(
-		Global.environment_resources["clouds"],
+		Global.environment_Assets["clouds"],
 		along_z,
 		randf_range(min_cloud_height, max_cloud_height)
 	)
 	# Spawn ground instances
 	spawn_ground_and_clouds(
-		Global.environment_resources["ground"],
+		Global.environment_Assets["ground"],
 		along_z,
 		ground_position
 	)
@@ -156,8 +156,8 @@ func spawn_environmental_segment(along_z: float):
 func get_random_collectible_type():
 	var cumulative_chance = 0
 	var chance_roll = randf()
-	for key in Global.collectibles_resources.keys():
-		cumulative_chance += Global.collectibles_resources[key]["spawn_chance"]
+	for key in Global.collectibles_Assets.keys():
+		cumulative_chance += Global.collectibles_Assets[key]["spawn_chance"]
 		if chance_roll <= cumulative_chance:
 			return key
 	return "coin" 
