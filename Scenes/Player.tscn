@@ -1121,7 +1121,7 @@ advance_expression_base_node = NodePath("../..")
 anim_player = NodePath("../AnimationPlayer")
 
 [node name="Camera" type="Node3D" parent="."]
-transform = Transform3D(-1, 4.37114e-08, -7.57104e-08, 0, 0.866026, 0.5, 8.74228e-08, 0.5, -0.866026, 0, 3, -3)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5, 0, 0)
 
 [node name="SpringArm3D" type="SpringArm3D" parent="Camera"]
 spring_length = 0.5
