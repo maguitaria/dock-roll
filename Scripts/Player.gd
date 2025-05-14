@@ -15,7 +15,7 @@ func _physics_process(delta):
 	direction = direction.normalized()
 	velocity.x = direction.x * SPEED
 
-	if is_on_floor() and Input.is_action_just_pressed("ui_jump"):
+	if is_on_floor() and Input.is_action_just_pressed("ui_up"):
 		velocity.y = JUMP_VELOCITY
 
 	# Apply gravity
@@ -24,3 +24,17 @@ func _physics_process(delta):
 
 	# Move the player using built-in velocity
 	move_and_slide()
+	
+	# Player effects
+func apply_effect(effect_name):
+	match effect_name:
+		"increase_score":
+			Global.score += 1
+			Global.score_updated.emit()
+		"boost_jump":
+			Global.jump_boost_count += 1
+			Global.jump_boost_updated.emit()
+		"decrease_time":
+			if Global.level_time >= 10:
+				Global.level_time -= 10
+				Global.level_time_updated.emit()
