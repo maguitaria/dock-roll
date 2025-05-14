@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://df6ftqccjy8qj"]
+[gd_scene load_steps=6 format=3 uid="uid://df6ftqccjy8qj"]
 
 [ext_resource type="PackedScene" uid="uid://dwaa32p1plnx0" path="res://Assets/Platforms/ground_dirt_4.fbx" id="1_3aw44"]
+[ext_resource type="Script" uid="uid://i0y4i0lgwh0j" path="res://Scripts/Collectibles.gd" id="1_oc4nb"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_l07tb"]
 
@@ -26,6 +27,7 @@ _data = {
 }
 
 [node name="Collectibles" type="Area3D"]
+script = ExtResource("1_oc4nb")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_l07tb")
