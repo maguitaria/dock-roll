@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://d4ll6q0heuxe1"]
+[gd_scene load_steps=44 format=4 uid="uid://d4ll6q0heuxe1"]
 
 [ext_resource type="Texture2D" uid="uid://ka7jwiyde5t5" path="res://Assets/Player/AJ-17bfd556bfaefcb10bf774864655b8f5_Boy01_diffuse.jpg" id="1_0g8pn"]
 [ext_resource type="Script" uid="uid://tythyudiplnq" path="res://Scripts/Player.gd" id="1_q3ktw"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cxsbxp2k0gsl" path="res://Assets/Player/AJ.fbm/Boy01_FacialAnimMap.png" id="5_ugku6"]
 [ext_resource type="Texture2D" uid="uid://xug1man41ie4" path="res://Assets/Player/AJ-17bfd556bfaefcb10bf774864655b8f5_Boy01_FacialAnimMap_3.png" id="6_xxew5"]
 [ext_resource type="Texture2D" uid="uid://b0e35d662ips4" path="res://Assets/Player/AJ-17bfd556bfaefcb10bf774864655b8f5_Boy01_FacialAnimMap_4.png" id="7_nsbk6"]
+[ext_resource type="Script" uid="uid://yca5yacncsfb" path="res://Scripts/HUD.gd" id="9_arntx"]
 [ext_resource type="Texture2D" uid="uid://dop7p1ehv0hi8" path="res://Assets/Icons/Coin.png" id="12_q3nnj"]
 [ext_resource type="FontFile" uid="uid://2nj8hcjkivqc" path="res://Assets/Fonts/montreal/Montreal-Bold.ttf" id="13_koiqf"]
 [ext_resource type="Texture2D" uid="uid://bvfiv5f4ggog" path="res://Assets/Icons/GemBlue.png" id="14_67nh7"]
@@ -1131,6 +1132,7 @@ current = true
 [node name="GameTimer" type="Timer" parent="."]
 
 [node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource("9_arntx")
 
 [node name="Score" type="ColorRect" parent="HUD"]
 anchors_preset = 1
