@@ -17,12 +17,12 @@ func spawn_obstacle():
 	if randf() < Global.advanced_obstacle_spawn_chance:
 		obstacle_resource = Global.advanced_obstacle_resources[randi() % Global.advanced_obstacle_resources.size()]
 	else:
-		obstacle_resource = Global.obstacle_resources[randi() % Global.obstacle_resources.size()]
+		obstacle_resource = Global.obstacle_Assets[randi() % Global.obstacle_Assets.size()]
 		
 	var obstacle_instance = obstacle_resource.instantiate()
 	
 	# If it's an advanced obstacle, move it
-	if obstacle_resource in Global.advanced_obstacle_resources:
+	if obstacle_resource in Global.advanced_obstacle_Assets:
 		var height_above_platform = 1.2
 		obstacle_instance.transform.origin.y += height_above_platform
 		move_obstacle(obstacle_instance)
