@@ -30,11 +30,11 @@ func _update_score():
 	
 # Time UI
 func _update_time():
-    var total_seconds = int(Global.level_time)
-    var minutes = total_seconds / 60.0 # Division with a floating-point number
-    var seconds = total_seconds % 60
-    # Format time as MM:SS
-    level_time_label.text = "%02d:%02d" % [int(minutes), seconds]
+	var total_seconds = int(Global.level_time)
+	var minutes = total_seconds / 60.0 # Division with a floating-point number
+	var seconds = total_seconds % 60
+	# Format time as MM:SS
+	level_time_label.text = "%02d:%02d" % [int(minutes), seconds]
 
 
 # Jump UI

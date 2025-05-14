@@ -11,7 +11,9 @@ var game_won = false
 var speed = 5.0
 var jump_velocity = 10.0 # how high
 const jump_speed = 3.0 # how fast
-const gravity = 20
+const gravity = 20.0
+var ready_to_fall = false
+
 
 # Node refs
 @onready var game_timer = $GameTimer
@@ -30,9 +32,11 @@ enum game_state {CONTINUE, RETRY}
 var current_state
 
 func _ready():
-	start_screen.visible = true
+	await get_tree().process_frame  # ensure platform exists
+	ready_to_fall = true
 	
 func _physics_process(delta):
+	
 	handle_movement(delta)
 	
 func handle_movement(delta):

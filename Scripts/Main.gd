@@ -16,6 +16,8 @@ func _ready():
 	level_music.stop()
 	menu_music.play()
 	update_level_label()
+	# Ensure static platform under player
+	spawn_start_platform()
 
 	# --- Skybox setup ---
 	var env := Environment.new()
@@ -61,3 +63,22 @@ func _input(event):
 		level_music.stop()
 		button_start.text = "RESUME LEVEL"
 		get_tree().paused = true
+		
+func spawn_start_platform():
+	var platform = StaticBody3D.new()
+	platform.name = "StartPlatform"
+	platform.transform.origin = Vector3(0, -1, 0)
+
+	var mesh_instance = MeshInstance3D.new()
+	var mesh = BoxMesh.new()
+	mesh.size = Vector3(6, 1, 50)
+	mesh_instance.mesh = mesh
+	platform.add_child(mesh_instance)
+
+	var collision = CollisionShape3D.new()
+	var shape = BoxShape3D.new()
+	shape.size = Vector3(6, 1, 50)
+	collision.shape = shape
+	platform.add_child(collision)
+
+	add_child(platform)
