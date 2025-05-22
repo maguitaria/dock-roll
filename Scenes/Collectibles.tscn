@@ -1,45 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://df6ftqccjy8qj"]
+[gd_scene load_steps=4 format=3 uid="uid://rmvsvi07c76q"]
 
-[ext_resource type="PackedScene" uid="uid://dwaa32p1plnx0" path="res://Assets/Platforms/ground_dirt_4.fbx" id="1_3aw44"]
 [ext_resource type="Script" uid="uid://i0y4i0lgwh0j" path="res://Scripts/Collectibles.gd" id="1_oc4nb"]
+[ext_resource type="PackedScene" uid="uid://d0yk1rhaw38qi" path="res://Assets/3D Leap Land/fbx/coin.fbx" id="2_oc4nb"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_l07tb"]
-
-[sub_resource type="Animation" id="Animation_0o6vl"]
-resource_name = "rotate_item"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Collectible:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 6.28319, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_y0foq"]
-_data = {
-&"rotate_item": SubResource("Animation_0o6vl")
-}
+[sub_resource type="BoxShape3D" id="BoxShape3D_ngxay"]
 
 [node name="Collectibles" type="Area3D"]
 script = ExtResource("1_oc4nb")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("SphereShape3D_l07tb")
+shape = SubResource("BoxShape3D_ngxay")
 
-[node name="Collectible" type="Node3D" parent="."]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_y0foq")
-}
-autoplay = "rotate_item"
-
-[node name="Root Scene" parent="." instance=ExtResource("1_3aw44")]
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[node name="coin" parent="." instance=ExtResource("2_oc4nb")]

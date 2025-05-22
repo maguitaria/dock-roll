@@ -44,11 +44,11 @@ func _update_jump_boost():
 # Lives UI
 func _update_lives():
 	if Global.lives >= 3:
-		lives_sprite.texture = preload("res://Assets/Icons/HeartFull.png")
+		lives_sprite.texture = preload("res://Resources/Icons/HeartFull.png")
 	elif Global.lives == 2:
-		lives_sprite.texture = preload("res://Assets/Icons/HeartHalf.png")
+		lives_sprite.texture = preload("res://Resources/Icons/HeartHalf.png")
 	else:
-		lives_sprite.texture = preload("res://Assets/Icons/HeartEmpty.png")
+		lives_sprite.texture = preload("res://Resources/Icons/HeartEmpty.png")
 
 # Level UI
 func _update_level():
