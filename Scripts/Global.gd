@@ -63,6 +63,7 @@ var collectible_scene = preload("res://Scenes/Collectibles.tscn")
 
 # Advanced Obstacles
 var advanced_obstacle_resources = [
+	
 	preload("res://Resources/AdvancedObstacles/bee.tscn"),
 	preload("res://Resources/AdvancedObstacles/rotating_log.tscn")
 ]

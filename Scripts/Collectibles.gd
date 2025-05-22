@@ -13,7 +13,7 @@ func _on_body_entered(body):
 
 # Instantiate object		
 func set_collectible_type(type):
-	collectibles = $Collectible
+	collectibles = $Scenes/Collectibles
 	collectible_name = type
 	var collectible_data = Global.collectibles_resources[type]
 	var collectible_resource = collectible_data["scene"]

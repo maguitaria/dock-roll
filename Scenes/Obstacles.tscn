@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://hfxjlgsd8i2w"]
 
 [ext_resource type="Script" uid="uid://dkptdb1sf3t6a" path="res://Scripts/Obstacles.gd" id="1_6ibsg"]
-[ext_resource type="AudioStream" uid="uid://b8vtpfbf16l34" path="res://Assets/Music/damage.mp3" id="2_e5o50"]
+[ext_resource type="AudioStream" uid="uid://kivxf1k4tu8s" path="res://Resources/Music/background_music.mp3" id="2_e5o50"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_diuom"]
 

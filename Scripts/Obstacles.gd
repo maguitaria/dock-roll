@@ -1,6 +1,6 @@
 ### Obstacles.gd
 
-extends Area3D
+extends Node3D
 
 # Advanced obstacles
 var advanced_obstacles = []
