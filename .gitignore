@@ -10,3 +10,4 @@ export_presets.cfg
 
 # Exclude full Assets folder (no assets on GitHub)
 Assets/
+Resources/
