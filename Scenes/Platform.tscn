@@ -1,3 +1,13 @@
-[gd_scene load_steps=0 format=3 uid="uid://buaxo5a7ytum6"]
+[gd_scene load_steps=3 format=3 uid="uid://buaxo5a7ytum6"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7fcwl"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_pquxj"]
 
 [node name="Platform" type="Node2D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_7fcwl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("WorldBoundaryShape3D_pquxj")

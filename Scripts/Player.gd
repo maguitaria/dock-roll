@@ -27,6 +27,7 @@ var ready_to_fall = false
 @onready var level_fail_music = $Sounds/LevelFailMusic
 @onready var jump_sfx = $Sounds/JumpSFX
 
+
 # Game State
 enum game_state {CONTINUE, RETRY}
 var current_state
@@ -38,12 +39,19 @@ func _ready():
 func _physics_process(delta):
 	
 	handle_movement(delta)
-	
+	# Detect if player fell below the level
+	if ready_to_fall and global_position.y < -20:
+		Global.lives = 0
+		Global.lives_updated.emit()
+		game_over()
+		
 func handle_movement(delta):
 	if game_starts and not game_won:
-		# Handle horizontal movement
+		# Move forward always along -Z, and steer using X
 		var input_right = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
-		velocity.x = input_right * speed
+
+		velocity.x = input_right * speed  # steer left/right
+		velocity.z = -jump_speed if is_jumping else -speed  # move forward
 
 		# Handle vertical movement (jumping)
 		if is_on_floor():
@@ -71,6 +79,7 @@ func handle_movement(delta):
 		# Check for air platform collision
 		if velocity.z == 0:
 			check_for_platform_collisions()	
+			
 
 # Air Platform Collisions
 func check_for_platform_collisions():

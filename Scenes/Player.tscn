@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://d4ll6q0heuxe1"]
+[gd_scene load_steps=45 format=4 uid="uid://d4ll6q0heuxe1"]
 
 [ext_resource type="Texture2D" uid="uid://ka7jwiyde5t5" path="res://Assets/Player/AJ-17bfd556bfaefcb10bf774864655b8f5_Boy01_diffuse.jpg" id="1_0g8pn"]
 [ext_resource type="Script" uid="uid://tythyudiplnq" path="res://Scripts/Player.gd" id="1_q3ktw"]
@@ -445,7 +445,13 @@ blend_shape_mode = 0
 transparency = 1
 albedo_texture = ExtResource("5_ugku6")
 
+[sub_resource type="Animation" id="Animation_arntx"]
+resource_name = "jump"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_blyms"]
+_data = {
+&"jump": SubResource("Animation_arntx")
+}
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kg32k"]
 animation = &"Idle"
@@ -502,12 +508,12 @@ script = ExtResource("1_q3ktw")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_urqrj")
 
-[node name="Root Scene" type="Node3D" parent="."]
+[node name="Root_Scene" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.929406, 0)
 
-[node name="RootNode" type="Node3D" parent="Root Scene"]
+[node name="RootNode" type="Node3D" parent="Root_Scene"]
 
-[node name="Skeleton3D" type="Skeleton3D" parent="Root Scene/RootNode"]
+[node name="Skeleton3D" type="Skeleton3D" parent="Root_Scene/RootNode"]
 bones/0/name = "mixamorig_Hips"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, -1.74533e-06, 0, 1.74533e-06, 1, 0, 0, 0, 1, 2.9474e-09, 0.832392, 0.00414298)
@@ -1090,32 +1096,32 @@ bones/82/position = Vector3(-0.0077907, 0.0529412, 0.0426824)
 bones/82/rotation = Quaternion(0.018069, 0.35759, 0.933438, 0.0222838)
 bones/82/scale = Vector3(1, 1, 1)
 
-[node name="Boy01_Body_Geo" type="MeshInstance3D" parent="Root Scene/RootNode/Skeleton3D"]
+[node name="Boy01_Body_Geo" type="MeshInstance3D" parent="Root_Scene/RootNode/Skeleton3D"]
 mesh = SubResource("ArrayMesh_jwlol")
 skin = SubResource("Skin_2m42y")
 surface_material_override/0 = SubResource("StandardMaterial3D_dc7hb")
 
-[node name="h_Geo" type="MeshInstance3D" parent="Root Scene/RootNode/Skeleton3D"]
+[node name="h_Geo" type="MeshInstance3D" parent="Root_Scene/RootNode/Skeleton3D"]
 mesh = SubResource("ArrayMesh_bhuw2")
 skin = SubResource("Skin_lqanc")
 surface_material_override/0 = SubResource("StandardMaterial3D_h2jln")
 
-[node name="Boy01_Eyes_Geo" type="MeshInstance3D" parent="Root Scene/RootNode/Skeleton3D"]
+[node name="Boy01_Eyes_Geo" type="MeshInstance3D" parent="Root_Scene/RootNode/Skeleton3D"]
 mesh = SubResource("ArrayMesh_axnj1")
 skin = SubResource("Skin_6yjit")
 surface_material_override/0 = SubResource("StandardMaterial3D_0paqp")
 
-[node name="Boy01_Brows_Geo" type="MeshInstance3D" parent="Root Scene/RootNode/Skeleton3D"]
+[node name="Boy01_Brows_Geo" type="MeshInstance3D" parent="Root_Scene/RootNode/Skeleton3D"]
 mesh = SubResource("ArrayMesh_52uaj")
 skin = SubResource("Skin_6yjit")
 surface_material_override/0 = SubResource("StandardMaterial3D_ufh8d")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Root Scene"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Root_Scene"]
 libraries = {
 &"": SubResource("AnimationLibrary_blyms")
 }
 
-[node name="AnimationTree" type="AnimationTree" parent="Root Scene"]
+[node name="AnimationTree" type="AnimationTree" parent="Root_Scene"]
 tree_root = SubResource("AnimationNodeStateMachine_ormjf")
 advance_expression_base_node = NodePath("../..")
 anim_player = NodePath("../AnimationPlayer")
