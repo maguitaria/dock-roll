@@ -1,16 +1,17 @@
+### Collectibles.gd
+
 extends Area3D
 
-var collectible_name
+var collectible_name 
 var collectibles
-
 
 func _on_body_entered(body):
 	if body.is_in_group("Player"):
-		var effect_name = Global.collectibles_resources[collectible_name]
+		var effect_name = Global.collectibles_resources[collectible_name]["effect"]
 		body.apply_effect(effect_name)
 		queue_free()
 
-
+# Instantiate object		
 func set_collectible_type(type):
 	collectibles = $Collectible
 	collectible_name = type
