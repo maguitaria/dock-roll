@@ -2,7 +2,10 @@
 # 🌿 Leap Runner 3D
 
 **Leap Runner 3D** is a fast-paced endless runner game built with **Godot 4** and powered by the beautiful low-poly assets from the [3D Leap Land Asset Pack](https://essssam.itch.io/3d-leap-land). Dodge obstacles, collect gems, and leap across floating platforms as far as you can!
-
+ 
+ This Game was done on principals of FreeCodeCamp course "Dock&Roll".
+ We used the tutorial and asssets as a base for an application.
+ 
 ---
 
 ## 🎮 Gameplay
