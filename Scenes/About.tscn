@@ -25,11 +25,12 @@ script = SubResource("GDScript_mh4jx")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = -2.0
-offset_top = -404.0
-offset_right = 1156.0
-offset_bottom = 651.0
+offset_left = 71.0
+offset_top = -199.0
+offset_right = 1105.0
+offset_bottom = 611.0
 texture = ExtResource("1_mh4jx")
+expand_mode = 1
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
