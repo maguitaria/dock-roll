@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://d4ll6q0heuxe1" path="res://Scenes/Player.tscn" id="1_54ub6"]
 [ext_resource type="PackedScene" uid="uid://wvdjghp77q4u" path="res://Scenes/World.tscn" id="2_jf5oh"]
 [ext_resource type="FontFile" uid="uid://2nj8hcjkivqc" path="res://Resources/Fonts/montreal/Montreal-Bold.ttf" id="3_ymi0i"]
+[ext_resource type="Texture2D" uid="uid://bgjs0i1ax06pi" path="res://Resources/Dock&Roll_info.png" id="4_jw32o"]
+[ext_resource type="Texture2D" uid="uid://b7ij8kdqvyqqm" path="res://logo_FH.png" id="5_50glp"]
 [ext_resource type="AudioStream" uid="uid://c8menbmpoydct" path="res://Resources/Music/menu_music.mp3" id="5_dmodb"]
 [ext_resource type="AudioStream" uid="uid://kivxf1k4tu8s" path="res://Resources/Music/background_music.mp3" id="6_fqrjh"]
 
@@ -32,10 +34,6 @@ dof_blur_far_distance = 30.0
 dof_blur_amount = 1.0
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_50glp"]
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_v1gob"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_jw32o"]
 
 [node name="Main" type="Node3D"]
 process_mode = 3
@@ -66,30 +64,36 @@ transform = Transform3D(0.109821, 0, 0.993951, 0, 1, 0, -0.993951, 0, 0.109821, 
 process_mode = 3
 layer = 2
 
-[node name="Container" type="ColorRect" parent="Menu"]
+[node name="Container" type="TextureRect" parent="Menu"]
 material = SubResource("CanvasItemMaterial_50glp")
 use_parent_material = true
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = -1.0
+offset_right = -3.0
+offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("4_jw32o")
+expand_mode = 1
 
-[node name="Label" type="Label" parent="Menu/Container"]
+[node name="dock&ROll" type="TextureRect" parent="Menu/Container"]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -347.0
-offset_top = 35.0
-offset_right = 347.0
-offset_bottom = 158.0
-grow_horizontal = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("3_ymi0i")
-theme_override_font_sizes/font_size = 100
-text = "DOCK & ROLL"
+anchors_preset = -1
+anchor_right = 0.107
+anchor_bottom = 0.119
+offset_left = 972.0
+offset_top = 7.0
+offset_right = 1028.84
+offset_bottom = 17.364
+texture = ExtResource("5_50glp")
+expand_mode = 1
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Menu/Container"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Menu/Container/ParallaxBackground"]
 
 [node name="LevelLabel" type="Label" parent="Menu/Container"]
 layout_mode = 1
@@ -125,39 +129,22 @@ theme_override_fonts/font = ExtResource("3_ymi0i")
 theme_override_font_sizes/font_size = 50
 text = "NEW GAME"
 
-[node name="ButtonStart" type="Button" parent="Menu/Container/ButtonStart"]
+[node name="About" type="Button" parent="Menu/Container"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 410.0
-offset_top = 309.0
-offset_right = 512.0
-offset_bottom = 345.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("3_ymi0i")
-theme_override_font_sizes/font_size = 16
-text = "About"
-
-[node name="ButtonLoad" type="Button" parent="Menu/Container"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -350.0
-offset_top = -4.0
-offset_right = 350.0
-offset_bottom = 96.0
+offset_left = -343.5
+offset_top = -2.0
+offset_right = 356.5
+offset_bottom = 98.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_ymi0i")
 theme_override_font_sizes/font_size = 50
-text = "LOAD GAME"
+text = "ABOUT"
 
 [node name="ButtonExit" type="Button" parent="Menu/Container"]
 layout_mode = 1
@@ -176,10 +163,6 @@ theme_override_fonts/font = ExtResource("3_ymi0i")
 theme_override_font_sizes/font_size = 50
 text = "EXIT"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Menu"]
-material = SubResource("CanvasItemMaterial_v1gob")
-sprite_frames = SubResource("SpriteFrames_jw32o")
-
 [node name="Sounds" type="Node3D" parent="."]
 
 [node name="MenuMusic" type="AudioStreamPlayer" parent="Sounds"]
@@ -189,6 +172,5 @@ stream = ExtResource("5_dmodb")
 stream = ExtResource("6_fqrjh")
 
 [connection signal="pressed" from="Menu/Container/ButtonStart" to="." method="_on_button_start_pressed"]
-[connection signal="pressed" from="Menu/Container/ButtonStart/ButtonStart" to="." method="_on_button_start_pressed"]
-[connection signal="pressed" from="Menu/Container/ButtonLoad" to="." method="_on_button_load_pressed"]
+[connection signal="pressed" from="Menu/Container/About" to="." method="_on_about_pressed"]
 [connection signal="pressed" from="Menu/Container/ButtonExit" to="." method="_on_button_exit_pressed"]

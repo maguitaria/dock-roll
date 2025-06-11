@@ -1,66 +1,94 @@
 [gd_scene load_steps=5 format=3 uid="uid://d2b66jf02dhf2"]
 
-[ext_resource type="FontFile" uid="uid://2nj8hcjkivqc" path="res://Resources/Fonts/montreal/Montreal-Bold.ttf" id="1_8rnfx"]
-[ext_resource type="Script" uid="uid://px5ypt3k6r63" path="res://Scripts/About.gd" id="2_j0t0u"]
+[ext_resource type="Texture2D" uid="uid://bgjs0i1ax06pi" path="res://Resources/Dock&Roll_info.png" id="1_mh4jx"]
+[ext_resource type="Texture2D" uid="uid://b7ij8kdqvyqqm" path="res://logo_FH.png" id="3_7ngfu"]
+[ext_resource type="Texture2D" uid="uid://rwtrotwhv2bq" path="res://Scenes/ChatGPT Image Jun 11, 2025, 02_34_16 PM.png" id="4_ceh3k"]
 
-[sub_resource type="ImageTexture" id="ImageTexture_i2c1n"]
+[sub_resource type="GDScript" id="GDScript_mh4jx"]
+script/source = "extends Control
 
-[sub_resource type="LabelSettings" id="LabelSettings_8rnfx"]
 
-[node name="About" type="Node3D"]
 
-[node name="AboutScreen" type="CanvasLayer" parent="."]
 
-[node name="UI" type="Control" parent="AboutScreen"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 28.0
-offset_top = 28.0
-offset_right = 1100.0
-offset_bottom = 632.0
-
-[node name="TextureRect" type="TextureRect" parent="AboutScreen/UI"]
-layout_mode = 0
-offset_left = 856.0
-offset_top = 28.0
-offset_right = 1070.0
-offset_bottom = 104.0
-texture = SubResource("ImageTexture_i2c1n")
-
-[node name="Info" type="Label" parent="AboutScreen/UI"]
-layout_mode = 0
-offset_left = 132.0
-offset_top = 105.0
-offset_right = 789.0
-offset_bottom = 518.0
-text = "GAME NAME
-
-A short endless runner where you leap across floating platforms and avoid obstacles.
-
-Created by: Alisa Ermel, Mariia Glushenkova
-Powered by Godot + 3D Leap Land Assets
+func _on_back_button_pressed() -> void:
+	get_tree().change_scene_to_file(\"res://Scenes/Main.tscn\")
 "
-label_settings = SubResource("LabelSettings_8rnfx")
 
-[node name="Back" type="TextureButton" parent="AboutScreen/UI"]
+[node name="About" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = SubResource("GDScript_mh4jx")
+
+[node name="Background" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 119.0
-offset_bottom = 39.0
+offset_left = 72.0
+offset_top = -404.0
+offset_right = 1111.0
+offset_bottom = 620.0
+texture = ExtResource("1_mh4jx")
 
-[node name="ButtonStart" type="Button" parent="AboutScreen/UI/Back"]
+[node name="Panel" type="Panel" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 22.5
-offset_top = -19.5
-offset_right = 153.5
-offset_bottom = 50.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("1_8rnfx")
-theme_override_font_sizes/font_size = 50
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+offset_left = 9.4
+offset_top = 1.6
+offset_right = 9.40002
+offset_bottom = 1.59998
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 0
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "About This Game"
+horizontal_alignment = 1
+
+[node name="DescriptionLabel" type="Label" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+text = "Dock and Roll is an endless runner game where you collect items, dodge obstacles, and race across floating docks.
+
+Created by Mariia Glushenkova and Alisa Ermel."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="BackButton" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
 text = "Back"
-script = ExtResource("2_j0t0u")
+
+[node name="logo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.107
+anchor_bottom = 0.119
+offset_left = 846.0
+offset_top = 43.0
+offset_right = 949.736
+offset_bottom = 77.888
+texture = ExtResource("3_7ngfu")
+expand_mode = 1
+
+[node name="dock&ROll" type="TextureRect" parent="logo"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.107
+anchor_bottom = 0.119
+offset_left = -743.0
+offset_top = 19.0
+offset_right = -639.264
+offset_bottom = 53.888
+texture = ExtResource("4_ceh3k")
+expand_mode = 1
+
+[connection signal="pressed" from="Panel/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

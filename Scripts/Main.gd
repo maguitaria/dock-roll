@@ -39,12 +39,12 @@ func _on_button_start_pressed():
 	level_music.play()
 	get_tree().paused = false
 
-# Load Game
-func _on_button_load_pressed():
-	Global.load_game()
+# About screen
+func _on_button_about_pressed():
+	if button_start.text == "ABOUT":
+		Global.new_game()
 	menu.visible = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	player.reset_game_state()
 	menu_music.stop()
 	level_music.play()
 	get_tree().paused = false
@@ -82,3 +82,7 @@ func spawn_start_platform():
 	platform.add_child(collision)
 
 	add_child(platform)
+
+
+func _on_about_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/About.tscn")  # Adjust path if needed
