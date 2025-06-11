@@ -5,8 +5,7 @@ extends Node3D
 # Advanced obstacles
 var advanced_obstacles = []
 
-# Node Refs
-@onready var damage_sfx = $Sounds/DamageSFX
+# Node Refss
 
 func _ready():
 	spawn_obstacle()
@@ -35,7 +34,6 @@ func _on_body_entered(body):
 		if Global.lives > 0:
 			Global.lives -= 1
 			Global.lives_updated.emit()
-			damage_sfx.play()
 			print("Deducting Lives")
 		else:
 			print("Game over")

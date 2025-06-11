@@ -48,7 +48,7 @@ func _physics_process(delta):
 func handle_movement(delta):
 	if game_starts and not game_won:
 		# Move forward always along -Z, and steer using X
-		var input_right = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
+		var input_right = Input.get_action_strength("ui_left") - Input.get_action_strength("ui_right")
 
 		velocity.x = input_right * speed  # steer left/right
 		velocity.z = -jump_speed if is_jumping else -speed  # move forward
