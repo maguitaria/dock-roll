@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0tsvfd8c0cab"]
+
+[ext_resource type="PackedScene" uid="uid://dkdqmbbol4urt" path="res://Resources/Obstacles/TreeStump.fbx" id="1_0kjhb"]
+
+[node name="TreeStump" type="Node3D"]
+
+[node name="Root Scene" parent="." instance=ExtResource("1_0kjhb")]

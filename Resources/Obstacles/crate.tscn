@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://6xqt4051d8la"]
+
+[ext_resource type="PackedScene" uid="uid://ccsfuydf6akj6" path="res://Resources/Obstacles/Crate.fbx" id="1_315um"]
+
+[node name="Crate" type="Node3D"]
+
+[node name="Root Scene" parent="." instance=ExtResource("1_315um")]

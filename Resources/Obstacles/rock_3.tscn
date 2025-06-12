@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://4qwaq00pd3qq"]
+
+[ext_resource type="PackedScene" uid="uid://5q62ir4gnnwg" path="res://Resources/Obstacles/Rock3.fbx" id="1_mi2pe"]
+
+[node name="Rock3" type="Node3D"]
+
+[node name="Root Scene" parent="." instance=ExtResource("1_mi2pe")]

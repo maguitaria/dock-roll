@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://c8l4g3axsiis1"
+path.s3tc="res://.godot/imported/Running Jump-a6fedec311a9fcfb99f48a9df60ddab2_Boy01_normal.jpg-18c5b0a65f5dbed39c206ae590d8d664.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "a89cd0b6ac91ece00c7d82381113c92e"
+}
+
+[deps]
+
+source_file="res://Resources/Player/Animatons/Running Jump-a6fedec311a9fcfb99f48a9df60ddab2_Boy01_normal.jpg"
+dest_files=["res://.godot/imported/Running Jump-a6fedec311a9fcfb99f48a9df60ddab2_Boy01_normal.jpg-18c5b0a65f5dbed39c206ae590d8d664.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=1
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=1
+roughness/src_normal="res://Resources/Player/Animatons/Running Jump-a6fedec311a9fcfb99f48a9df60ddab2_Boy01_normal.jpg"
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0
